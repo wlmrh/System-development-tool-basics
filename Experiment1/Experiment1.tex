@@ -1,0 +1,84 @@
+\documentclass{article}
+\usepackage{color}
+% \usepackage{CJKutf8}
+\usepackage[UTF8]{ctex}
+
+\begin{document}
+% \begin{CJK*}{UTF8}{bsmi}
+    \title{第一次实验}
+    \author{汤琦}
+    \date{\today}
+    \maketitle
+
+    \pagenumbering{arabic}
+    \tableofcontents
+    % \thispagestyle{empty}
+    \newpage
+
+    \setcounter{page}{1}
+    \section{Latex简单使用}
+    \subsection{形成基础结构}
+    没有遇到任何问题\\
+    Don't meet any problem.
+
+    \subsection{制作目录}
+        \subsubsection{问题一}
+        When creating catalog, the start index going from 2 instead of 1.\\
+        Solution:\\
+        After creating a new page, set the index of the new page to 1.
+
+    \subsection{公式输入}
+        \begin{equation}
+        e=mc^2
+        \end{equation}
+
+        \begin{equation}
+        \pi = \frac c d
+        \end{equation}
+
+        \begin{equation}
+        \frac{d}{dx}e^x=e^x
+        \end{equation}
+
+        \begin{equation}
+        \frac{d}{dx} \int _0 ^\infty {f(s)ds} = f(s)
+        \end{equation}
+
+        \begin{equation}
+        f(x) = \mathop{\Sigma} \limits_{i} 0^{\infty} \frac{f^{(i)}(0)}{i!}x^i
+        \end{equation}
+
+        \begin{equation}
+        x = \sqrt{\frac{x_i}{z}y}
+        \end{equation}
+
+    \subsection {字体样式}
+        {\color{cyan}\Large text}\\
+        \colorbox{magenta}{\Huge Hello}
+
+    \subsection{表格制作}
+        \begin{tabular}{|c|c|c|}
+        \hline
+        Item   & Quantity & Price(\$) \\
+        \hline
+        Nails  & 500      & 0.34\\
+        Bricks & 240      & 11.50\\
+        \hline
+        \end{tabular}
+
+        \begin{tabular}{c|ccc}
+        & Year & & \\
+        \cline{2-4}
+        City & 2006 & 2007 & 2008\\
+        \hline
+        London & 45789 & 46551 & 51298\\
+        Berlin & 34549 & 32543 & 29870\\
+        Paris  & 49835 & 51009 & 51970\\
+
+        \end{tabular}
+    \newpage
+    
+    \section{Git简单使用}
+
+\end{document}
+
