@@ -8,3 +8,4 @@
 \contentsline {section}{\numberline {2}Git简单使用}{3}{}%
 \contentsline {subsection}{\numberline {2.1}Exercise2}{3}{}%
 \contentsline {subsection}{\numberline {2.2}Exercise4}{4}{}%
+\contentsline {subsection}{\numberline {2.3}Exercise5}{5}{}%

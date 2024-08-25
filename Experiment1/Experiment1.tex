@@ -141,5 +141,41 @@
         \subsection{Exercise4}
         从 \verb|GitHub| 上克隆某个仓库，修改一些文件。当您使用 \verb|git stash| 会发生什么？当您执行
         \verb|git log --all --oneline| 时会显示什么？通过 \verb|git stash pop| 命令来撤销
-        \verb|git stash| 操作，什么时候会用到这一技巧？
+        \verb|git stash| 操作，什么时候会用到这一技巧？\\
+        运行\verb|git stash|命令后, 使用\verb|git status|命令, 发现之前做的修改消失了。
+        \begin{figure}[H]
+            \centering
+            \includegraphics[scale=0.7]{4.png}
+            \caption{运行后的结果}
+        \end{figure}
+        执行\verb|git log --all --oneline|后, 运行结果如下：
+        \begin{figure}[H]
+            \centering
+            \includegraphics[scale=0.7]{5.png}
+        \end{figure}
+        看到之前做的修改被保存为 main 分支上的WIP(work in progress), 只是从文件夹中被移除。
+        在运行指令\verb|git stash pop|指令后发现之前修改的 \verb|README.md| 
+        又回到了Changes not staged for commit 中
+        \begin{figure}[H]
+            \centering
+            \includegraphics[scale=0.8]{6.png}
+        \end{figure}
+        推测 \verb|git stash|是为了在本地暂存已进行的修改而不进行提交, 
+        以进行其他活动。使用场景可能是在进行功能开发时, 发现有其他bug需要维修
+        这时可以在本地暂存已进行的开发, 而不用进行一次无用的提交来达到缓存的目的。
+        \subsection{Exercise5}
+        与其他的命令行工具一样，Git 也提供了一个名为 ~/.gitconfig 配置文件 
+        (或 dotfile)。请在 ~/.gitconfig 中创建一个别名，使您在运行
+         git graph 时，您可以得到 git log --all --graph --decorate --oneline 
+         的输出结果；
+         只需在\verb|.gitconfig|文件中添加
+         \begin{verbatim}
+            [alias]
+            graph = log --all --graph --decorate --oneline
+        \end{verbatim}
+        结果如下：
+        \begin{figure}[H]
+            \centering
+            \includegraphics[scale=0.8]{7.png}
+        \end{figure}
 \end{document}
