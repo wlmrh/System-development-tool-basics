@@ -58,7 +58,17 @@
             \end{equation}
 
             \begin{equation}
-            x = \sqrt{\frac{x_i}{z}y}
+                new\_amount[idx] = \mathop{\min}_{i \; in \; child[idx]} \{amount_{i}\}           
+            \end{equation}
+
+            \begin{equation}
+                new\_bad\_rate[idx] = 1 - \mathop{\Pi}_{i \; in \; child[idx]} \{(1-bad\_rate[i])\}     
+            \end{equation}
+
+            \begin{equation}
+                Obj() = amount[root] \cdot (1 - bad\_rate[root]) \cdot finish\_sale -  
+                amount[root] \cdot \\
+                bad\_rate[root] \cdot exchange\_cost
             \end{equation}
 
         \subsection {字体样式}

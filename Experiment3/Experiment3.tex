@@ -1,0 +1,303 @@
+\documentclass{article}
+\usepackage{color}
+\usepackage[UTF8]{ctex}
+\usepackage{graphicx}
+\usepackage{float}
+
+\begin{document}
+    \title{第三次实验}
+    \author{汤琦 \\ 23020007110\\ https://github.com/wlmrh/System-development-tool-basics}
+    \date{\today}
+    \maketitle
+
+    \pagenumbering{arabic}
+    \tableofcontents
+    \newpage
+
+    \setlength{\parindent}{0pt}
+    \setcounter{page}{1}
+    \sloppy
+\section{Python基础}
+    \subsection{Q1}
+    有四个数字：1、2、3、4，能组成多少个互不相同且无重复数字的三位数？各是多少？
+    \begin{verbatim}
+        for i in range(1, 5):
+            for j in  range (1, 5):
+                for k in range(1, 5):
+                    if i != j and j != k and i != k:
+                        print(i, j, k)
+    \end{verbatim}
+
+    \subsection{Q2}
+    一个整数，它加上100后是一个完全平方数，再加上168又是一个完全平方数，请问该数是多少？
+        \begin{verbatim}
+            sub = 168
+            for i in range(90):
+                for j in range (1, i):
+                    if (i + j) * (i - j) == sub:
+                        print(i ** 2 - 268)
+                        break            
+        \end{verbatim}
+    
+    \subsection{Q3}
+    输入三个整数x,y,z，请把这三个数由小到大输出。
+        \begin{verbatim}
+            arr = []
+            for i in range(3):
+                arr.append(int(input()))
+            arr.sort()
+            for i in range(3):
+                print(arr[i])
+        \end{verbatim}
+    \subsection{Q4}
+    斐波那契数列
+    \begin{verbatim}
+        a = 0
+        b = 1
+        final = int(input())
+        for i in range(final):
+            print(b)
+            a, b = b, a + b
+    \end{verbatim}
+
+    \subsection{Q5}
+    将一个列表的数据复制到另一个列表中。
+    \begin{verbatim}
+        arr1 = []
+        arr2 = []
+        len = int(input())
+        for i in range(len):
+            arr1.append(int(input()))
+        arr2 = arr1[:]
+        print('arr2: ')
+        for i in range(len):
+            print(arr2[i])
+    \end{verbatim}
+    
+    \subsection{Q6}
+    输出 9*9 乘法口诀表
+    \begin{verbatim}
+        for i in range(1, 10):
+            for j in range(1, i + 1):
+                print('%d x %d = %d' % (i, j, i * j), end = " ")
+            print('\n')
+    \end{verbatim}
+
+    \subsection{Q7}
+    暂停一秒输出
+    \begin{verbatim}
+        import time
+            out = ['adsfa', 'fwdcsc']
+            print(out[0])
+            time.sleep(3)
+            print(out[1])
+    \end{verbatim}
+
+    \subsection{Q8}
+    有一对兔子，从出生后第3个月起每个月都生一对兔子，小兔子长到第三个月后每个月又生一对兔子，假如兔子都不死，问每个月的兔子总数为多少？
+    \begin{verbatim}
+        a, b = 1, 1
+            len = int(input())
+            for i in range(len):
+                a, b = b, a + b
+            print(b)
+    \end{verbatim}
+
+    \subsection{Q9}
+    判断101-200之间有多少个素数，并输出所有素数。
+    \begin{verbatim}
+        import math
+        cnt = 0
+        final = []
+        for i in range(101, 201):
+            good = 0
+            for j in range(2, int(math.sqrt(i)) + 1):
+                if i % j == 0:
+                    good = 1
+                    break
+            if good == 0:
+                cnt += 1
+                final.append(i)
+
+        print('一共有%d个素数' % cnt)
+        for i in final:
+            print(i, end = " ")
+    \end{verbatim}
+
+    \subsection{Q10}
+    打印出所有的"水仙花数"，所谓"水仙花数"是指一个三位数，其各位数字立方和等于该数本身。例如：153是一个"水仙花数"，因为153=1的三次方＋5的三次方＋3的三次方。
+    \begin{verbatim}
+        for i in range(1, 10):
+            for j in range(10):
+                for k in range(10):
+                    if i * 100 + j * 10 + k == i ** 3 + j ** 3 + k ** 3:
+                        print(i * 100 + j * 10 + k)
+    \end{verbatim}
+
+    \subsection{Q11}
+    将一个正整数分解质因数。例如：输入90,打印出90=2*3*3*5
+    \begin{verbatim}
+        import math
+
+        solve = {}
+        num = int(input())
+        origin = num
+        for i in range(2, int(math.sqrt(num)) + 1):
+            if num == 1:
+                break
+            if num % i == 0:
+                solve[i] = 1
+                num /= i
+            while num % i == 0:
+                solve[i] += 1
+                num /= i
+
+        if num != 1:
+            solve[num] = 1
+
+        print('%d =' % origin, end = ' ')
+        first = 0
+        for a, b in solve.items():
+            for i in range(b):
+                if first != 0:
+                    print('x %d' % a, end = ' ')
+                else:
+                    print('%d' % a, end = ' ')
+                    first = 1
+    \end{verbatim}
+
+    \subsection{Q12}
+    学习成绩>=90分的同学用A表示，60-89分之间的用B表示，60分以下的用C表示。
+        \begin{verbatim}
+            score = int(input('请输入成绩: '))
+
+            if score >= 90:
+                print('A')
+            elif score >= 60:
+                print('B')
+            else:
+                print('C')
+        \end{verbatim}
+
+    \subsection{Q13}
+    求s=a+aa+aaa+aaaa+aa...a的值，其中a是一个数字。例如2+22+222+2222+22222(此时共有5个数相加)，几个数相加由键盘控制。
+    \begin{verbatim}
+        n = int(input('请输入n的值: '))
+        a = int(input('请输入a的值: '))
+        
+        ans = 0
+        
+        for i in range(n):
+            ans += (10 ** i) * a * (n - i)
+        
+        print(ans)
+    \end{verbatim}
+
+    \subsection{Q14}
+    一个数如果恰好等于它的因子之和，这个数就称为"完数"。例如6=1＋2＋3.编程找出1000以内的所有完数。
+    \begin{verbatim}
+        import math
+
+        ans = []
+        for i in range(1, 1001):
+            rcd = []
+            for j in range(1, i):
+                if i % j == 0:
+                    rcd.append(j)
+        
+            if sum(rcd) == i:
+                ans.append(i)
+        
+        for i in ans:
+            print(i)
+    \end{verbatim}
+\section{Python视觉编程}
+    \subsection{Q1}
+    导入图片并展示
+    \begin{verbatim}
+        from PIL import Image
+        from pylab import *
+
+        axis('off')
+        pil_im = Image.open("test.jpg")
+        im = array(pil_im)
+        imshow(im);
+    \end{verbatim}
+
+    \subsection{Q2}
+    调整图片灰度并展示
+    \begin{verbatim}
+        from PIL import Image
+        from pylab import *
+
+        axis('off')
+        pil_im = Image.open("test.jpg")
+        grey = pil_im.convert("L")
+        im = array(grey)
+        imshow(im)
+        axis('off')
+    \end{verbatim}
+
+    \subsection{Q3}
+    简单灰度变换并输出
+    \begin{verbatim}
+        from PIL import Image
+        from pylab import *
+
+        axis('off')
+        pil_im = Image.open("test.jpg")
+        im = array(pil_im)
+        pic = 255.0 * (im/255.0)**2
+        imshow(pic)
+        axis('off')
+    \end{verbatim}
+
+    \subsection{Q4}
+    图片复制反转
+        \begin{verbatim}
+            from PIL import Image
+            from pylab import *
+
+            axis('off')
+            pil_im = Image.open("test.jpg")
+            region = (1000, 0, 3500, 2000)
+            region_rev = pil_im.crop(region)
+            region_rev = region_rev.transpose(Image.ROTATE_180)
+            imshow(array(region_rev))
+            axis('off')
+        \end{verbatim}
+
+        \subsection{Q5}
+        显示图像轮廓
+        \begin{verbatim}
+            from PIL import Image
+            from pylab import *
+
+            axis('off')
+            pil_im = Image.open("test.jpg")
+            im = array(pil_im)
+            figure()
+            gray()
+            contour(im, origin='image')
+            axis('equal')
+            axis('off')
+        \end{verbatim}
+
+        \subsection{Q6}
+        图像模糊化
+            \begin{verbatim}
+                from numpy import *
+                from scipy.ndimage import filters
+                from PIL import Image
+                from pylab import *
+
+                axis('off')
+                pil_im = Image.open("test.jpg")
+                im = array(pil_im)
+                for i in range(3):
+                    im[:, :, i] = filters.gaussian_filter(im[:, :, i], 10)
+                imshow(im)
+                axis('off')
+            \end{verbatim}
+
+\end{document}
